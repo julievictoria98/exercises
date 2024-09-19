@@ -42,7 +42,7 @@
     //     console.log(`Hello ${firstName}`)
     // }
 
-    // ender med Hello undefined, da vi ikke har defineret hvad parameteren firstName er lig med
+    // ender med 'Hello undefined', da vi ikke har defineret hvad parameteren firstName er lig med
 
 
 /* excerise 5 ----------------------------------------------------------------------- */

@@ -1,0 +1,52 @@
+body{
+    background-color: #f4ede1;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: rgb(59, 59, 59);
+}
+
+
+#input{
+    border-radius: 25px;
+    border: 2px solid #9f9f9f;
+    padding-inline: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    
+}
+
+#button{
+    border-radius: 25px;
+    padding-inline: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    background-color: rgb(107, 107, 239);
+    border: none;
+    color: rgb(240, 239, 239);
+}
+
+div{
+    margin-top: 5rem;
+}
+
+@keyframes win {
+0% { transform: scale(1);
+    
+
+ }
+ 50%{
+    transform: scale(5);
+ }
+
+ 100% {
+    transform: scale(2) ;
+ }
+}
+
+.win {
+    animation-name: win;
+    animation-duration: 1s;
+    animation-fill-mode: forwards; 
+}

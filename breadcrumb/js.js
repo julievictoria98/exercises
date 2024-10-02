@@ -5,20 +5,17 @@ const bc = [{ name: "Hvidevarer", link: "/hvidevarer" },{ name: "Vaskemaskiner",
 document.querySelector("#button").addEventListener("click", breadcrumb);  
 function breadcrumb() {
 
+    document.querySelector("#button").removeEventListener("click", breadcrumb);      
     
-  bc.forEach((item, index) => {
-
-     if(index === bc.length -1 ){
-         const breadcrumb = document.createElement("li"); 
-    breadcrumb.innerHTML = "/" + item.name;
-    document.getElementById("ul").appendChild(breadcrumb); 
-    }
-
-    else{   const breadcrumb = document.createElement("li"); 
-    breadcrumb.innerHTML = `<a href="${item.link}">${"/" +item.name}</a>`;
-    document.getElementById("ul").appendChild(breadcrumb); }
- 
-
-
-  });
+    bc.forEach((item, index) => {
+        if(index === bc.length -1 ){
+            const breadcrumb = document.createElement("li"); 
+            breadcrumb.innerHTML = "/" + item.name;
+            document.querySelector("#ul").appendChild(breadcrumb); 
+        } else {   
+            const breadcrumb = document.createElement("li"); 
+            breadcrumb.innerHTML = `<a href="${item.link}">${"/" +item.name}</a>`;
+            document.querySelector("#ul").appendChild(breadcrumb); 
+        }
+    });
 }

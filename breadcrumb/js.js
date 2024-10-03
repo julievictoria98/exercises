@@ -1,5 +1,5 @@
 const bc = [{ name: "Hvidevarer", link: "/hvidevarer" },{ name: "Vaskemaskiner", link: "/hvidevarer/vaskemaskiner" },
-    { name: "Bosch", link: "/hvidevarer/vaskemaskiner/bosch/" },];
+    { name: "Bosch", link: "/hvidevarer/vaskemaskiner/bosch/" }, ];
 
 
 document.querySelector("#button").addEventListener("click", breadcrumb);  
@@ -19,3 +19,5 @@ function breadcrumb() {
         }
     });
 }
+
+// brug indexOF istedet index

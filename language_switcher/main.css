@@ -1,0 +1,36 @@
+
+body{
+    color: white;
+}
+.top{
+    background-color: rgb(102, 127, 170);
+    border: 2px solid black;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   padding: 1.5rem 2rem
+    
+}
+main{
+    background-color: rgb(214, 228, 252);
+    border: 2px solid black;
+    font-size: 1.5rem;
+    padding: 5rem 2rem;
+    color:black;
+}
+
+#language{
+    font-size: 1rem;
+}
+
+footer{
+    background-color: rgb(197, 80, 1);
+    border: 2px solid black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5rem;
+    padding: 1.5rem 2rem
+
+    
+}

@@ -22,6 +22,7 @@ function showTheseVehicles(arr) {
   
     // For hver objekt i arrayet arr, lav en række <tr>
     // Indeni hver række skal der laves en celle <td> for hver værdi (value) i objektet
+    // tbodyPointer ="";
     tbodyPointer.innerHTML += `<tr>
   <td>${each.type}</td>
   <td>${each.fuel === undefined ? "No fuel" : each.fuel}</td>

@@ -10,3 +10,4 @@ let newName = firstpart + thirdLetter + finalPart;
 
 console.log(newName);
 
+

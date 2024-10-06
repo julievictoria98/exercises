@@ -19,7 +19,7 @@ const updatedWord = textArray.map((object) => {
     return object;
 }
 );
-newString = updatedWord.join(" ");
+const newString = updatedWord.join(" ");
 
 console.log(newString);
 

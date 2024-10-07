@@ -1,0 +1,75 @@
+
+body{
+  padding: 4rem;
+  background-color: var(--bg-color);
+    font-family: var(--font-family);
+  
+}
+
+body[data-theme="hawaii"]{
+    --header-bg-color: yellow;
+    --main-bg-color:aqua;
+    --footer-bg-color: red;
+    --bg-color: pink;
+    --font-family: 'arial', sans-serif;
+
+}
+
+body[data-theme="dark"]{
+    --header-bg-color: rgb(22, 74, 22);
+    --main-bg-color: rgb(40, 124, 40);
+    --footer-bg-color: rgb(22, 74, 22);
+    --bg-color: rgb(43, 42, 42);
+    --font-family: 'Courier New', Courier, monospace;
+
+}
+
+body[data-theme="light"]{
+    --header-bg-color: rgb(245, 233, 202);
+    --main-bg-color:  rgb(245, 233, 202);
+    --footer-bg-color:  rgb(245, 233, 202);  
+    --bg-color: rgb(250, 225, 163);
+    --font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+header{
+    background-color: var(--header-bg-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+}
+
+main{
+    background-color: var(--main-bg-color);
+}
+footer{
+    background-color: var(--footer-bg-color);
+}
+
+h1{
+    font-size: 5rem;
+}
+
+.top{
+    display: flex;
+    align-items: center;
+   padding: 1.5rem 2rem;
+   gap:2rem;
+    
+}
+main{
+    border: 2px solid black;
+    font-size: 1.5rem;
+    padding: 5rem 2rem;
+    color:black;
+}
+
+
+footer{
+    font-size: 2.5rem;
+    padding: 1.5rem 2rem
+
+    
+}

@@ -39,3 +39,4 @@ function showText() {
 $("#okBtn").addEventListener("click", () => {
     $(".popup").classList.remove("show");
 });
+// textcontent, skriv teskten i p-tag

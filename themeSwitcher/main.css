@@ -2,7 +2,8 @@
 body{
   padding: 4rem;
   background-color: var(--bg-color);
-    font-family: var(--font-family);
+  font-family: var(--font-family);
+  color:var( --font-color);
   
 }
 
@@ -12,6 +13,7 @@ body[data-theme="hawaii"]{
     --footer-bg-color: red;
     --bg-color: pink;
     --font-family: 'arial', sans-serif;
+    --font-color: black;
 
 }
 
@@ -21,6 +23,8 @@ body[data-theme="dark"]{
     --footer-bg-color: rgb(22, 74, 22);
     --bg-color: rgb(43, 42, 42);
     --font-family: 'Courier New', Courier, monospace;
+    --font-color: white;
+
 
 }
 
@@ -30,6 +34,7 @@ body[data-theme="light"]{
     --footer-bg-color:  rgb(245, 233, 202);  
     --bg-color: rgb(250, 225, 163);
     --font-family: 'Times New Roman', Times, serif;
+    --font-color: black;
 
 }
 

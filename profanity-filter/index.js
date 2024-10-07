@@ -2,41 +2,23 @@ import { $ } from "../utils/dom.js";
 
 const curseWords = [  {    bad: "var",    good: "const",  },  {    bad: "float",    good: "grid",  },  {    bad: "marquee",    good: "just don't",  },];
 
+let text = $("#text").textContent;
 
-let firstCurseWord = curseWords[0].bad;
-let secondCurseWord = curseWords[1].bad;
-let thirdCurseWord = curseWords[2].bad;
+$("#button").addEventListener("click", testTekst);
 
-let text = "Programmering er sjovt! Men husk altid at bruge " +
-           firstCurseWord + " " +
-           secondCurseWord + " og " +
-           thirdCurseWord + " i moderne kodning.";
+function testTekst(){ 
+    curseWords.forEach((curseWord) => {
 
-$("#text").innerHTML = text;
+        if(text.includes(curseWord.bad)){
+        text = text.replaceAll(curseWord.bad, `<span>${curseWord.good}</span>`);
+        
+        }
 
-$("#button").addEventListener("click", showText);
-
-function showText() {
-    if (firstCurseWord === curseWords[0].good) {
-        $("#popup").innerHTML = "Det er allerede Safe For Work";
-        $(".popup").classList.add("show");
-    }
-
-    if (firstCurseWord === curseWords[0].bad) { 
-        firstCurseWord = curseWords[0].good;
-        secondCurseWord = curseWords[1].good;
-        thirdCurseWord = curseWords[2].good;
-
-        text = "Programmering er sjovt! Men husk altid at bruge " +
-               "<span class='curse-word'>" + firstCurseWord + "</span> " +
-               "<span class='curse-word'>" + secondCurseWord + "</span> og " +
-               "<span class='curse-word'>" + thirdCurseWord + "</span> i moderne kodning.";
-
+        else{
+            $("dialog").setAttribute("open", true);
+        }
         $("#text").innerHTML = text;
-    }
-}
+    });
 
-$("#okBtn").addEventListener("click", () => {
-    $(".popup").classList.remove("show");
-});
-// textcontent, skriv teskten i p-tag
+};
+

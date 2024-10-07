@@ -1,4 +1,4 @@
-document.querySelector("body").addEventListener("change", (event) => {  
+document.querySelector("select").addEventListener("change", (event) => {  
     if (event.target.value=== "dark"){
         document.querySelector("body").dataset.theme = event.target.value
     }

@@ -1,6 +1,6 @@
 "use strict";
 
-window.addEventListener("DOMContentLoaded", start);
+window.addEventListener("load", start);
 
 const Animal = {
     name: "default name",
@@ -55,8 +55,49 @@ function start( ) {
     console.log("ready");
 
     loadJSON();
+    attachEventListeners();
 }
 
+function attachEventListeners() {
+    document.querySelector(".onlyCats").addEventListener("click", () => {
+        const onlyCats = allAnimals.filter(animal => animal.type === "cat");
+        document.querySelector("#list tbody").innerHTML = ""; 
+        onlyCats.forEach( displayAnimal );
+    });
+
+    document.querySelector(".onlyDogs").addEventListener("click", ()=>{
+        const onlyDogs = allAnimals.filter(animal => animal.type === "dog")
+
+        document.querySelector("#list tbody").innerHTML = ""; 
+
+        onlyDogs.forEach(displayAnimal);
+    });
+
+    document.querySelector(".all").addEventListener("click", () =>{
+
+        document.querySelector("tbody").innerHTML = "";
+        allAnimals.forEach(displayAnimal);
+    });
+
+    document.querySelector(".nameSort").addEventListener("click", ()=>{
+
+        const nameArray = allAnimals.filter(animal => animal.name);
+
+        // const her = nameArray.map(animal => animal.name);
+
+        // console.log ("hehhhhr" + her);
+        // const sort = nameArray.sort((a,b) => a.name.localeCompare(b.name));
+        const sortedAnimals = allAnimals.sort((a, b) => a.name.localeCompare(b.name));
+
+        console.log(sortedAnimals)
+
+        document.querySelector("tbody").innerHTML =""
+        sortedAnimals.forEach(displayAnimal);
+
+        console.log(sort)
+
+    });
+}
 
 function loadJSON() {
     fetch("animals.json")
@@ -105,77 +146,9 @@ function displayList() {
 }
 
 
-document.querySelector(".onlyCats").addEventListener("click", () => {
-   const onlyCats = allAnimals.filter(animal => animal.type === "cat");
-   document.querySelector("#list tbody").innerHTML = ""; 
-   onlyCats.forEach( displayAnimal );
-});
-
-document.querySelector(".onlyDogs").addEventListener("click", ()=>{
-    const onlyDogs = allAnimals.filter(animal => animal.type === "dog")
-
-    document.querySelector("#list tbody").innerHTML = ""; 
-
-    onlyDogs.forEach(displayAnimal);
-})
-
-
-document.querySelector(".all").addEventListener("click", () =>{
-
-    document.querySelector("tbody").innerHTML = "";
-    allAnimals.forEach(displayAnimal);
-} )
-
-document.querySelector(".nameSort").addEventListener("click", ()=>{
-
-sort = allAnimals.sort((a,b) => a.name.localeCompare(b.name));
-
-document.querySelector("tbody").innerHTML =""
-sort.forEach(displayAnimal);
-
-});
-
-document.querySelector(".typeSort").addEventListener("click", ()=>{
-
-sort = allAnimals.sort((a,b) => a.type.localeCompare(b.type));
-
-document.querySelector("tbody").innerHTML =""
-sort.forEach(displayAnimal);
-
-});
-
-
-document.querySelector(".typeSort").addEventListener("click", ()=>{
-
-sort = allAnimals.sort((a,b) => a.type.localeCompare(b.type));
-
-document.querySelector("tbody").innerHTML =""
-sort.forEach(displayAnimal);
-
-});
-
-document.querySelector(".typeSort").addEventListener("click", ()=>{
-
-sort = allAnimals.sort((a,b) => a.type.localeCompare(b.type));
-
-document.querySelector("tbody").innerHTML =""
-sort.forEach(displayAnimal);
-
-});
-
-
-function sort(item){
-    allAnimals.sort(animal => animal.type);
-
-
-}
-
-
 function displayAnimal( animal ) {
+ const clone = document.querySelector("template#animal").content.cloneNode(true);
 
-    const clone = document.querySelector("template#animal").content.cloneNode(true);
-
-    
     // create clone
 
     // set clone data

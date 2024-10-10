@@ -9,96 +9,83 @@ const Animal = {
     age: 0,
 
 };
-    
 
-
-const allAnimals = [[
-    {
-        name: "Mandu" ,
-        desc: "amazing",
-        type: "cat",
-        age: 10
-    },
-    {
-        name: "Mia",
-        desc: "black",
-        type: "cat",
-        age: 10
-    },
-    {
-        name: "Leeloo",
-        desc: "growing",
-        type: "dog",
-        age: 3
-    },
-    {
-        name: "Toothless",
-        desc: "trained",
-        type: "dragon",
-        age: 14
-    },
-    {
-        name: "ScoobyDoo",
-        desc: "wondering",
-        type: "dog",
-        age: 58
-    },
-    {
-        name: "Horsey",
-        desc: "horsing",
-        type: "horse",
-        age: 10
-    }
-]];
+const allAnimals = [];
+let displayedAnimals = [];
+let sortDescending = true;
 
 function start( ) {
     console.log("ready");
-
     loadJSON();
     attachEventListeners();
 }
 
 function attachEventListeners() {
     document.querySelector(".onlyCats").addEventListener("click", () => {
-        const onlyCats = allAnimals.filter(animal => animal.type === "cat");
+        displayedAnimals = allAnimals.filter(animal => animal.type === "cat");
         document.querySelector("#list tbody").innerHTML = ""; 
-        onlyCats.forEach( displayAnimal );
+        displayedAnimals.forEach( displayAnimal );
     });
 
     document.querySelector(".onlyDogs").addEventListener("click", ()=>{
-        const onlyDogs = allAnimals.filter(animal => animal.type === "dog")
+        displayedAnimals = allAnimals.filter(animal => animal.type === "dog")
 
         document.querySelector("#list tbody").innerHTML = ""; 
 
-        onlyDogs.forEach(displayAnimal);
+        displayedAnimals.forEach(displayAnimal);
     });
 
     document.querySelector(".all").addEventListener("click", () =>{
-
+        displayedAnimals = allAnimals;
         document.querySelector("tbody").innerHTML = "";
-        allAnimals.forEach(displayAnimal);
+        displayedAnimals.forEach(displayAnimal);
     });
 
+    // SORTING--------------------------------------------
     document.querySelector(".nameSort").addEventListener("click", ()=>{
+        sortString("name");
+    });
 
-        const nameArray = allAnimals.filter(animal => animal.name);
+    document.querySelector(".typeSort").addEventListener("click", () => {
+        sortString("type");
+    });
 
-        // const her = nameArray.map(animal => animal.name);
+    document.querySelector(".descSort").addEventListener("click", () => {
+        sortString("desc");
+    });
 
-        // console.log ("hehhhhr" + her);
-        // const sort = nameArray.sort((a,b) => a.name.localeCompare(b.name));
-        const sortedAnimals = allAnimals.sort((a, b) => a.name.localeCompare(b.name));
+    document.querySelector(".ageSort").addEventListener("click", () => {
+        let sortedAnimals = [];
 
-        console.log(sortedAnimals)
+        if(sortDescending) {
+            sortedAnimals = displayedAnimals.sort((a,b) => a.age-b.age);
+        } else {
+            sortedAnimals = displayedAnimals.sort((a,b) => b.age-a.age);
+        }
 
-        document.querySelector("tbody").innerHTML =""
+        sortDescending = !sortDescending;
+
+        document.querySelector("tbody").innerHTML = "";
         sortedAnimals.forEach(displayAnimal);
-
-        console.log(sort)
-
     });
 }
 
+function sortString(data) {
+    let sortedAnimals = [];
+
+    if(sortDescending) {
+        sortedAnimals = displayedAnimals.sort((a, b) => a[data].localeCompare(b[data]));
+    } else {
+        sortedAnimals = displayedAnimals.sort((a, b) => b[data].localeCompare(a[data]));
+    }
+    sortDescending = !sortDescending;
+
+    
+    document.querySelector("tbody").innerHTML = "";
+    sortedAnimals.forEach(displayAnimal);
+}
+
+// -------------------------------------------------------------------
 function loadJSON() {
     fetch("animals.json")
     .then( response => response.json() )
@@ -134,6 +121,8 @@ function prepareObjects( jsonData ) {
         allAnimals.push(animal);
     });
 
+    displayedAnimals = allAnimals;
+
     displayList();
 }
 
@@ -142,7 +131,7 @@ function displayList() {
     document.querySelector("#list tbody").innerHTML = "";
 
     // build a new list
-    allAnimals.forEach( displayAnimal );
+    displayedAnimals.forEach( displayAnimal );
 }
 
 
@@ -159,8 +148,6 @@ function displayAnimal( animal ) {
 
     // append clone to list
     document.querySelector("#list tbody").appendChild( clone );
-    console.log(animal);
-
 }
 
 

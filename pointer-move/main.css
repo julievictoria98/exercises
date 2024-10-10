@@ -1,0 +1,7 @@
+:root {
+    --brightness: 90%; 
+}
+
+body {
+background: hsl(90 80% var(--brightness));  
+}
